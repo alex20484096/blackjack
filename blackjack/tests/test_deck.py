@@ -1,25 +1,27 @@
 from deck import Deck
+import pytest
 
 
-def test_deck_instance():
-    d = Deck()
-    assert(isinstance(d, Deck))
+@pytest.fixture
+def deck():
+    return Deck()
 
 
-def test_deck_length():
-    d = Deck()
-    assert(len(d) == 52)
+def test_deck_instance(deck):
+    assert(isinstance(deck, Deck))
 
 
-def test_deck_reset():
-    d1 = Deck()
-    d2 = Deck()
-    d2.reset()
-    assert(d1 == d2)
+def test_deck_length(deck):
+    assert(len(deck) == 52)
 
 
-def test_deck_shuffle():
-    d1 = Deck()
-    d2 = Deck()
-    d2.shuffle()
-    assert (d1 != d2)
+def test_deck_reset(deck):
+    other_deck = Deck()
+    other_deck.reset()
+    assert(deck == other_deck)
+
+
+def test_deck_shuffle(deck):
+    other_deck = Deck()
+    other_deck.shuffle()
+    assert (deck != other_deck)
