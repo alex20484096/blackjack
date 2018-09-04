@@ -45,3 +45,7 @@ def test_card_eq(card):
 def test_card_not_eq(card):
     other_card = Card('Club', 'K')
     assert(card != other_card)
+
+
+def test_card_not_eq_non_card(card):
+    assert(card != 1)
