@@ -9,7 +9,7 @@ class Players:
     self.cards.append(card)
 
   def show_cards(self):
-    print(self.cards)
+    return(self.cards)
 
   def count_points2(self):
     self.points = []
@@ -38,27 +38,11 @@ class Players:
   def isBlackJack(self):
     if len(self.cards) >=2:
       if (str(self.cards[0]).split(" ")[0] in ["J", "Q", "K"]  and str(self.cards[1]).split(" ")[0] == "A") or (str(self.cards[1]).split(" ")[0] in ["J", "Q", "K"]  and str(self.cards[0]).split(" ")[0] == "A"):
-        print("True")
+        return("True")
       else:
-        print("False")
+        return("False")
     else:
-        print("False")
+        return("False")
 
 
 
-myDeck = Deck()
-myDeck.shuffle()
-
-player1 = Players()
-dealer1 = Players()
-
-for i in range(3):
-  player1.get_cards(myDeck.pop())
-  dealer1.get_cards(myDeck.pop())
-
-print("Player1: " + str(player1.cards))
-print("Dealer1: " + str(dealer1.cards))
-
-print(player1.count_points2())
-
-dealer1.isBlackJack()
