@@ -24,3 +24,4 @@ Windows instructions
 6. Run `cd blackjack` to move into the blackjack folder
 7. Run tests with `tox`
 8. Go wild!
+
